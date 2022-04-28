@@ -13,7 +13,14 @@
         <h1>Etch-a-Sketch Project</h1>
     </div>
     <div class = "container">
-        <button id = "clearBtn"> Clear </button>
+        <div class = "button_list">
+            <button id = "clearBtn"> Clear </button>
+            <div id = "sizeDisplay">  </div>
+            <div class = "slidecontainer">
+                <input type="range" min = "a" max = "64" value = "16" class = "slider" id = "sizeSlider">
+            </div>
+        </div>
+        
         <div id = "grid" class = "box"> </div>
     </div>
 </body>
