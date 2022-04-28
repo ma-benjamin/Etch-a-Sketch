@@ -9,13 +9,15 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <div class = "header">
-        <h1>Etch-a-Sketch Project</h1>
-    </div>
+    <header class = "header">
+        <h1 class = "title"> Etch-a-Sketch Project </h1>
+    </header>
     <div class = "container">
-        <div class = "button_list">
+        <div class = "settings">
+            <button id = "brushBtn"> Brush </button>
+            <button id = "eraserBtn"> Eraser </button>
             <button id = "clearBtn"> Clear </button>
-            <div id = "sizeDisplay">  </div>
+            <div id = "sizeDisplay"> 16 x 16 </div>
             <div class = "slidecontainer">
                 <input type="range" min = "a" max = "64" value = "16" class = "slider" id = "sizeSlider">
             </div>

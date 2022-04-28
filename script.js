@@ -1,12 +1,28 @@
 let size = 16;
 let color = '#333333'
+let brush = 'brush'
 
+function setCurrentColor(c) {
+    color = c
+}
+
+function setCurrentBrush(b) {
+    brush = b
+}
+
+function setCurrentSize(s) {
+    size = s
+}
 
 const grid = document.getElementById('grid')
+const brushBtn = document.getElementById('brushBtn')
+const eraserBtn = document.getElementById('eraserBtn')
 const clearBtn = document.getElementById('clearBtn')
 const sizeSlider = document.getElementById('sizeSlider')
 const sizeDisplay = document.getElementById('sizeDisplay')
 
+brushBtn.onclick = () => setCurrentBrush('brush')
+eraserBtn.onclick = () => setCurrentBrush('eraser')
 clearBtn.onclick = () => reload()
 sizeSlider.onmousemove = (e) => updateSizeDisplay(e.target.value)
 sizeSlider.onchange = (e) => changeBoardSize(e.target.value)
@@ -49,9 +65,28 @@ function setBoard(s) {
 
 function paint(e) {
     if(e.type === 'mouseover' && !mouseDown) return
-    e.target.style.backgroundColor = color;
+    if(brush === 'brush') {
+        e.target.style.backgroundColor = color;
+    } else if (brush === 'eraser') {
+        e.target.style.backgroundColor = '#fefefe'
+    }
+}
+
+function activateButton(b) {
+    if (brush === 'brush') {
+        brushBtn.classList.remove('active')
+    } else if (brush === 'eraser') {
+        eraserBtn.classList.remove('active')
+    }
+
+    if (b === 'brush') {
+        brushBtn.classList.remove('active')
+    } else if (b === 'eraser') {
+        eraserBtn.classList.remove('active')
+    }
 }
 
 window.onload = () => {
-    setBoard(size);
+    setBoard(size)
+    activateButton(brush)
 }
