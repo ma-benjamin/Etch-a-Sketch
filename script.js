@@ -20,12 +20,14 @@ const eraserBtn = document.getElementById('eraserBtn')
 const clearBtn = document.getElementById('clearBtn')
 const sizeSlider = document.getElementById('sizeSlider')
 const sizeDisplay = document.getElementById('sizeDisplay')
+const colorWheel = document.getElementById('colorWheel')
 
 brushBtn.onclick = () => setCurrentBrush('brush')
 eraserBtn.onclick = () => setCurrentBrush('eraser')
 clearBtn.onclick = () => reload()
 sizeSlider.onmousemove = (e) => updateSizeDisplay(e.target.value)
 sizeSlider.onchange = (e) => changeBoardSize(e.target.value)
+colorWheel.onchange = (e) => changeColor(e.target.value)
 
 let mouseDown = false
 document.body.onmousedown = () => (mouseDown = true)
@@ -48,6 +50,10 @@ function reload() {
 
 function clear() {
     grid.innerHTML = ''
+}
+
+function changeColor(c) {
+    color = c;
 }
 
 function setBoard(s) {
